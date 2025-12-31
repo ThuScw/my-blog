@@ -1,16 +1,16 @@
 baseURL = '/'
 languageCode = 'zh-cn'
-title = '我的博客'
+title = 'Blog'
 theme = 'PaperMod'
 
 [params]
   description = "记录思想与技术"
-  author = "你的名字"
+  author = "c.w."
   
   # 首页信息
   [params.homeInfoParams]
-    Title = "👋 欢迎来到我的博客"
-    Content = "在这里分享技术文章和生活感悟"
+    Title = "👋欢迎来到c.w.的Blog"
+    Content = "别回头别停留往前走"
 
   # 社交链接
   [[params.socialIcons]]
