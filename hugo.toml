@@ -1,0 +1,73 @@
+baseURL = '/'
+languageCode = 'zh-cn'
+title = '我的博客'
+theme = 'PaperMod'
+
+[params]
+  description = "记录思想与技术"
+  author = "你的名字"
+  
+  # 首页信息
+  [params.homeInfoParams]
+    Title = "👋 欢迎来到我的博客"
+    Content = "在这里分享技术文章和生活感悟"
+
+  # 社交链接
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/ThuScw"
+
+  # 启用搜索
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+# 菜单配置
+[[menu.main]]
+  name = "首页"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "文章"
+  url = "/posts/"
+  weight = 2
+
+[[menu.main]]
+  name = "分类"
+  url = "/categories/"
+  weight = 3
+
+[[menu.main]]
+  name = "标签"
+  url = "/tags/"
+  weight = 4
+
+[[menu.main]]
+  name = "关于"
+  url = "/about/"
+  weight = 5
+
+[[menu.main]]
+  name = "搜索"
+  url = "/search/"
+  weight = 6
+
+# 输出格式
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# Markdown 配置
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = true
+    lineNumbersInTable = true
+  
+  [markup.goldmark.renderer]
+    unsafe = true
