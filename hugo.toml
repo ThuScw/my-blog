@@ -4,30 +4,20 @@ title = 'Blog'
 theme = 'PaperMod'
 
 [params]
-  description = "记录思想与技术"
+  description = "记录思想、知识和技术"
   author = "c.w."
-  
-  # 首页信息
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
+  defaultTheme = "auto"
+
   [params.homeInfoParams]
-    Title = "👋欢迎来到c.w.的Blog"
+    Title = "👋 欢迎来到c.w.的Blog"
     Content = "别回头别停留往前走"
 
-  # 社交链接
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/ThuScw"
-
-  # 启用搜索
-  [params.fuseOpts]
-    isCaseSensitive = false
-    shouldSort = true
-    location = 0
-    distance = 1000
-    threshold = 0.4
-    minMatchCharLength = 0
-    keys = ["title", "permalink", "summary", "content"]
-
-# 菜单配置
 [[menu.main]]
   name = "首页"
   url = "/"
@@ -49,25 +39,26 @@ theme = 'PaperMod'
   weight = 4
 
 [[menu.main]]
-  name = "关于"
-  url = "/about/"
+  name = "搜索"
+  url = "/search/"
   weight = 5
 
 [[menu.main]]
-  name = "搜索"
-  url = "/search/"
+  name = "关于"
+  url = "/about/"
   weight = 6
 
-# 输出格式
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
-# Markdown 配置
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
   [markup.highlight]
-    style = "monokai"
+    codeFences = true
+    guessSyntax = true
     lineNos = true
     lineNumbersInTable = true
-  
-  [markup.goldmark.renderer]
-    unsafe = true
+    style = 'monokai'

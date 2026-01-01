@@ -30,10 +30,11 @@ h1 {
     color: var(--primary);
     border-bottom: 2px solid var(--primary);
     padding-bottom: 10px;
-}
+} 
 
 /* 代码块样式 */
 pre {
     border-radius: 12px !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+

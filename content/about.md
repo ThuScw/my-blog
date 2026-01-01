@@ -10,11 +10,11 @@ draft: false
 
 这是我的个人博客，记录技术、学习和思考
 
-部分文章、视频会在[@Thu_Scw-B站](https://space.bilibili.com/3546932569967474?spm_id_from=333.1007.0.0),[@ThuScw-博客园(cnblog)](https://www.cnblogs.com/scwacadex)同步
+部分文章、视频会在[@c.w.-知乎](https://www.zhihu.com/people/c-w--19/posts)，[@ThuScw-博客园(cnblog)](https://www.cnblogs.com/scwacadex)同步
 
-## 联系方式
+**联系方式**
 
 - GitHub: [@ThuScw](https://github.com/ThuScw)
 - Email: scw25@mails.tsinghua.edu.cn
 
-欢迎交流，请多指教！
+请多指教

@@ -1,0 +1,70 @@
+/* ===== 首页精细调优 ===== */
+
+/* 1. 减少页面顶部到标题的距离 */
+body.home .main {
+    padding-top: 0px;  /* 根据需要调整：10px, 20px, 30px */
+}
+
+/* 2. 缩小欢迎卡片 */
+.home-info {
+    max-width: 800px;  /* 限制宽度 */
+    margin: 0px auto;  /* 上下边距 */
+    padding: 0px;     /* 内边距 */
+    border-radius: 2px;
+}
+
+/* 3. 标题字体大小调整 */
+.home-info h1 {
+    font-size:2.5rem;  /* 原来可能是 2.5rem */
+    margin-bottom: 8px;
+}
+
+/* 4. 副标题/描述文字 */
+.home-info p {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    margin-top: 5px;
+}
+
+/* 5. 文章列表紧凑显示 */
+.post-entry {
+    padding: 15px;  /* 减少内边距 */
+    margin-bottom: 15px;  /* 减少间距 */
+}
+
+.post-entry .entry-header h2 {
+    font-size: 1.4rem;  /* 文章标题大小 */
+    margin-bottom: 5px;
+}
+
+/* 6. 减少页面容器的最大宽度（可选） */
+.main {
+    max-width: 800px;  /* 让内容更集中 */
+}
+
+/* 7. 移除不必要的空白 */
+.first-entry {
+    margin-top: 0;
+}
+
+/* 8. 优化间距比例 */
+article.post-entry:first-child {
+    margin-top: 0px;  /* 第一篇文章与标题的距离 */
+}
+
+/* ===== 响应式优化 ===== */
+@media (max-width: 768px) {
+    .home-info {
+        padding: 20px 15px;
+        margin: 10px auto;
+    }
+    
+    .home-info h1 {
+        font-size: 1.5rem;
+    }
+    
+    .post-entry {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+}
