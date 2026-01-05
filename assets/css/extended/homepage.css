@@ -7,7 +7,7 @@ body.home .main {
 
 /* 2. 缩小欢迎卡片 */
 .home-info {
-    max-width: 800px;  /* 限制宽度 */
+    max-width: 1000px;  /* 限制宽度 */
     margin: 0px auto;  /* 上下边距 */
     padding: 0px;     /* 内边距 */
     border-radius: 2px;
