@@ -1,8 +1,8 @@
 ---
 title: "【量化】从零到LGBM | 3 | GBDT"
-date: 2026-08-20T10:28:00+08:00
+date: 2026-08-20T10:29:00+08:00
 draft: false
-categories: ["数学"]
+categories: ["量化"]
 tags: [ "量化","算法"]
 ---
 
