@@ -3,7 +3,7 @@ title: "【量化】从零到LGBM | 3 | GBDT"
 date: 2026-08-20T10:29:00+08:00
 draft: false
 categories: ["量化"]
-tags: [ "量化","算法"]
+tags: ["量化","算法"]
 ---
 
 ## GBDT：梯度提升树与函数空间中的梯度下降

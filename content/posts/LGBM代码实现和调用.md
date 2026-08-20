@@ -3,7 +3,7 @@ title: "【量化】从零到LGBM | 6 | LGBM代码实现和调用"
 date: 2026-08-20T12:29:00+08:00
 draft: false
 categories: ["量化"]
-tags: [ "量化","算法"]
+tags: ["量化","算法"]
 ---
 
 # LightGBM 代码实现

@@ -1,9 +1,9 @@
 ---
 title: "【量化】从零到LGBM | 5 | LGBM"
-date: 2026-08-20T11:29:00+08:00
+date: 2026-08-20T11:31:00+08:00
 draft: false
 categories: ["量化"]
-tags: [ "量化","算法"]
+tags: ["量化","算法"]
 ---
 # LightGBM 解析：更快的工程学
 
