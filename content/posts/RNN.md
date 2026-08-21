@@ -1,6 +1,6 @@
 ---
 title: "【LLM】从零开始学大语言模型 | 3 | RNN"
-date: 2026-08-22T03:00:00+08:00
+date: 2026-08-21T05:00:00+08:00
 draft: false
 categories: ["LLM"]
 tags: ["LLM","RNN"]

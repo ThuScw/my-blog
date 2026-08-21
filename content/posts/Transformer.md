@@ -1,6 +1,6 @@
 ---
 title: "【LLM】从零开始学大语言模型 | 4 | Transformer"
-date: 2026-08-22T04:00:00+08:00
+date: 2026-08-21T06:00:00+08:00
 draft: false
 categories: ["LLM"]
 tags: ["LLM","transformer"]
