@@ -28,14 +28,7 @@ SHAP（Shapley Additive exPlanations）的理论基础源于博弈论中的 **Sh
 
 映射到特征上，公式是：
 
-$$
-\phi_i =
-\sum_{S \subseteq F \setminus \{i\}}
-\frac{|S|!(|F|-|S|-1)!}{|F|!}
-\left[
-v(S \cup \{i\}) - v(S)
-\right]
-$$
+$$\phi_i = \sum_{S \subseteq F \setminus \{i\}} \frac{|S|!(|F|-|S|-1)!}{|F|!} \left[ v(S \cup \{i\}) - v(S) \right]$$
 
 其中 $S$ 是不包含特征 $i$ 的特征子集，$v(S)$ 是仅使用集合 $S$ 中特征时模型的预测值，$\phi_i$ 是特征 $i$ 的 Shapley 值。该公式的具体形式无需记忆，其核心含义可概括为一句话：**SHAP 旨在公平地量化模型最终预测中每个特征的贡献度。**
 
@@ -45,9 +38,7 @@ $$
 
 假设模型为某只股票输出了 $+3.0\%$ 的预测分数，SHAP 可以将这一预测分解为：
 
-$$
-基础预测 + \sum_j \phi_j = 最终预测
-$$
+$$基础预测 + \sum_j \phi_j = 最终预测$$
 
 比如：
 
@@ -133,9 +124,7 @@ LightGBM 支持自定义目标函数（Custom Objective）。回归任务通常�
 
 理论上可以尝试，但 Rank IC 的定义是预测值与真实收益之间的 Spearman 秩相关系数：
 
-$$
-RankIC = corr(rank(\hat{y}), rank(y))
-$$
+$$RankIC = corr(rank(\hat{y}), rank(y))$$
 
 排名操作本身是不连续、不可导的，因此直接优化并不方便。通常需要构造可微的近似形式——如 smooth ranking、pairwise hinge surrogate、listwise surrogate、近似 Spearman 的可微版本、与 Rank IC 相关的 pairwise loss 等，均可尝试。自定义目标函数需要提供一阶导数和二阶导数：
 

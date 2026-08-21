@@ -65,11 +65,7 @@ tags: ["LLM","transformer"]
 
 在单头 Self-Attention 中，每个 token 的输入向量会分别被投影成 Query、Key、Value 三类向量：$Q = XW_Q,\ K = XW_K,\ V = XW_V$。然后计算注意力输出：
 
-$$
-\text{Attention}(Q, K, V)
-=
-\text{Softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-$$
+$$\text{Attention}(Q, K, V)=\text{Softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 其中 $d_k$ 是 Query 和 Key 的维度。缩放因子 $\sqrt{d_k}$ 的作用是避免点积过大导致 Softmax 梯度消失。
 
@@ -108,11 +104,7 @@ $$
 
 **第四步**，对拼接结果再做一次线性投影：
 
-$$
-\text{MultiHead}(Q, K, V)
-=
-\text{Concat}(\text{head}_1, \dots, \text{head}_h)W_O
-$$
+$$\text{MultiHead}(Q, K, V)=\text{Concat}(\text{head}_1, \dots, \text{head}_h)W_O$$
 
 其中 $W_O \in \mathbb{R}^{hd_v \times d_{model}}$。当 $hd_v = d_{model}$ 时，$W_O$ 的形状就是 $[512, 512]$。
 
@@ -170,15 +162,7 @@ FFN 的主要职责是"加工"。每个 token 在经过 Attention 后，已经�
 
 在标准 Transformer 中，FFN 通常会把中间维度扩大到原来的 4 倍。例如 $d_{model} = 512$，而 FFN 的中间隐藏层维度为 $d_{ff} = 2048$。也就是：
 
-$$
-x \in \mathbb{R}^{512}
-\rightarrow
-xW_1 + b_1 \in \mathbb{R}^{2048}
-\rightarrow
-\text{ReLU}
-\rightarrow
-(xW_1 + b_1)W_2 + b_2 \in \mathbb{R}^{512}
-$$
+$$x \in \mathbb{R}^{512}\rightarrowxW_1 + b_1 \in \mathbb{R}^{2048}\rightarrow\text{ReLU}\rightarrow(xW_1 + b_1)W_2 + b_2 \in \mathbb{R}^{512}$$
 
 为什么要这样做？
 
@@ -242,9 +226,7 @@ FFN 的形式是 $\text{FFN}(x) = W_2 \sigma(W_1x + b_1) + b_2$。我们可以�
 
 残差连接的形式非常简单：
 
-$$
-\text{Output} = x + F(x)
-$$
+$$\text{Output} = x + F(x)$$
 
 其中 $x$ 是进入某个子层之前的输入，$F(x)$ 是这个子层的输出。对于 Transformer Block 来说，$F(x)$ 可以是多头注意力，也可以是 FFN。
 
@@ -258,11 +240,7 @@ $$
 
 考虑一个简化的标量情况。假设 $y = x + F(x)$，对 $x$ 求导：
 
-$$
-\frac{\partial y}{\partial x}
-=
-1 + \frac{\partial F(x)}{\partial x}
-$$
+$$\frac{\partial y}{\partial x}=1 + \frac{\partial F(x)}{\partial x}$$
 
 如果没有残差连接，即 $y = F(x)$，那么 $\frac{\partial y}{\partial x} = \frac{\partial F(x)}{\partial x}$。如果 $F(x)$ 代表很多层复杂网络，那么反向传播时梯度可能会经过许多小于 1 的导数连乘，最终迅速趋近于 0。
 
@@ -305,9 +283,7 @@ Transformer 中的残差连接来自 ResNet 的思想。它的公式 $y = x + F(
 
 对于一个 $d$ 维向量 $x = (x_1, x_2, \dots, x_d)$，LayerNorm 首先计算均值 $\mu = \frac{1}{d}\sum_{i=1}^{d}x_i$ 和方差 $\sigma^2 = \frac{1}{d}\sum_{i=1}^{d}(x_i - \mu)^2$，然后进行标准化：
 
-$$
-\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}}
-$$
+$$\hat{x}_i = \frac{x_i - \mu}{\sqrt{\sigma^2 + \epsilon}}$$
 
 最后加入可学习参数：$\text{LayerNorm}(x)_i = \gamma_i \hat{x}_i + \beta_i$，其中 $\gamma_i$ 和 $\beta_i$ 是可学习的缩放和平移参数，$\epsilon$ 是一个极小常数，用于防止除以 0。
 
@@ -339,27 +315,19 @@ LayerNorm 不依赖 batch。它只对单个样本中的单个 token 向量做归
 
 原始 Transformer 论文中使用的是 Post-Norm，也就是先做子层计算，再做归一化：
 
-$$
-x = \text{LayerNorm}(x + \text{Sublayer}(x))
-$$
+$$x = \text{LayerNorm}(x + \text{Sublayer}(x))$$
 
 但在现代大语言模型中，更常见的是 Pre-Norm，也就是先归一化，再进入子层：
 
-$$
-x = x + \text{Sublayer}(\text{LayerNorm}(x))
-$$
+$$x = x + \text{Sublayer}(\text{LayerNorm}(x))$$
 
 Pre-Norm 的训练通常更稳定，因此被广泛采用。
 
 一个典型的 Pre-Norm Transformer Block 可以写成：
 
-$$
-x_{mid} = x + \text{MultiHeadAttention}(\text{LayerNorm}_1(x))
-$$
+$$x_{mid} = x + \text{MultiHeadAttention}(\text{LayerNorm}_1(x))$$
 
-$$
-x_{out} = x_{mid} + \text{FFN}(\text{LayerNorm}_2(x_{mid}))
-$$
+$$x_{out} = x_{mid} + \text{FFN}(\text{LayerNorm}_2(x_{mid}))$$
 
 用更流程化的语言描述就是：
 
@@ -372,12 +340,6 @@ $$
 7. 将 FFN 输出与中间结果相加（残差链接），得到 Block 输出。
 8. 把输出传给下一个 Block。
 
-可以用类似伪代码的方式表示：
-
-```text
-x = x + MultiHeadAttention(LayerNorm(x))
-x = x + FeedForward(LayerNorm(x))
-```
 
 在许多模型中，经过所有 Block 之后，还会再接一个最终的 LayerNorm，然后进入 LM Head。
 
