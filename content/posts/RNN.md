@@ -156,7 +156,7 @@ LSTM 不再只有一个隐藏状态，而是引入两个状态：
 
 $$f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)$$
 
-$$i_t = \sigma(W_i [h_{t-1}, x_t] + b_i), \qquad \tilde{C}_t = \tanh(W_C [h_{t-1}, x_t] + b_C)$$
+$$ i_t = \sigma(W_i [h_{t-1}, x_t] + b_i), \qquad \tilde{C}_t = \tanh(W_C [h_{t-1},x_t] + b_C) $$
 
 $$C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t$$
 

@@ -162,7 +162,7 @@ FFN 的主要职责是"加工"。每个 token 在经过 Attention 后，已经�
 
 在标准 Transformer 中，FFN 通常会把中间维度扩大到原来的 4 倍。例如 $d_{model} = 512$，而 FFN 的中间隐藏层维度为 $d_{ff} = 2048$。也就是：
 
-$$x \in \mathbb{R}^{512}\rightarrowxW_1 + b_1 \in \mathbb{R}^{2048}\rightarrow\text{ReLU}\rightarrow(xW_1 + b_1)W_2 + b_2 \in \mathbb{R}^{512}$$
+$$x \in \mathbb{R}^{512}\rightarrow xW_1 + b_1 \in \mathbb{R}^{2048}\rightarrow\text{ReLU}\rightarrow(xW_1 + b_1)W_2 + b_2 \in \mathbb{R}^{512}$$
 
 为什么要这样做？
 
