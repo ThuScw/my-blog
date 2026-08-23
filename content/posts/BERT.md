@@ -1,5 +1,5 @@
 ---
-title: "【LLM】从零开始学大语言模型 | 6 | Encoder-only架构和BERT"
+title: "【LLM】从零开始学大语言模型 | 7 | Encoder-only架构和BERT"
 date: 2026-08-21T08:00:00+08:00
 draft: false
 categories: ["LLM"]
