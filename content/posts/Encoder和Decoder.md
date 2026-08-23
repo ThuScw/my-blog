@@ -1,6 +1,6 @@
 ---
-title: "【LLM】从零开始学大语言模型 | 5 | Encoder-Decoder和掩码"
-date: 2026-08-21T07:00:00+08:00
+title: "【LLM】从零开始学大语言模型 | 6 | Encoder-Decoder和掩码"
+date: 2026-08-21T08:00:00+08:00
 draft: false
 categories: ["LLM"]
 tags: ["LLM","Encoder","Decoder","Casual Mask"]
